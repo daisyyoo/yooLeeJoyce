@@ -1,0 +1,26 @@
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
+h1,
+.navbar-brand {
+  color: #10375c;
+  font-family: Merriweather, serif;
+  font-weight: 600;
+}
+
+.image-container {
+  height: 35vh;
+}
+
+@media only screen and (min-width: 568px) {
+  .image-container {
+    height: 70vh;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .image-container {
+    height: 82vh;
+  }
+}
