@@ -7,7 +7,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 export default class Header extends React.Component {
   render() {
     return (
-      <Navbar collapseOnSelect className="color-nav" expand="md" sticky="top" >
+      <Navbar collapseOnSelect className="color-nav" expand="md" >
         <Container fluid >
           <Navbar.Brand href="#" className="px-2 px-md-4" />
           <Navbar.Toggle aria-controls="offcanvasNavbar-expand" />
