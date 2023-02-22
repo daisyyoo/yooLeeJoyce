@@ -1,6 +1,5 @@
 * {
   font-family: "Open Sans", sans-serif;
-  color: #6f8c69;
 }
 
 h1,
@@ -8,12 +7,24 @@ h3,
 .navbar-brand {
   font-family: Parisienne, serif;
   font-weight: 600;
+  color: #6f8c69;
+}
+
+h2,
+h4,
+h5,
+.text-color {
+  color: #6f8c69;
+}
+
+.form-control {
+  border: solid 2px #e3ca93;
 }
 
 .all-button {
   background-color: #fff;
   color: #6f8c69;
-  border: solid 3px #6f8c69;
+  border: solid 2px #6f8c69;
   border-radius: 5px;
   font-size: 1rem;
   margin: 16px;
@@ -23,17 +34,17 @@ h3,
 }
 
 .all-button:hover {
-  background-color: #6f8c69;
-  color: #fff;
-  border: solid 2px #6f8c69;
+  background-color: #6f8c69 !important;
+  color: #fff !important;
+  border: solid 2px #e3ca93 !important;
   border-radius: 5px;
 }
 
 .all-button:active {
-  background-color: #6f8c69 !important;
-  color: #fff !important;
+  background-color: #fff !important;
+  color: #6f8c69 !important;
   font-weight: 600;
-  border: solid 5px #6f8c69 !important;
+  border: solid 2px #6f8c69 !important;
   border-radius: 5px;
 }
 

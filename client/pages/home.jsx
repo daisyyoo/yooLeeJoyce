@@ -19,7 +19,7 @@ const styles = {
     height: '100%'
   },
   pageContainer: {
-    height: '100vh'
+    height: '105vh'
   },
   title: {
     fontSize: '5rem',
@@ -36,8 +36,10 @@ const styles = {
     lineHeight: '3rem'
   },
   text: {
-    // fontSize: '1.5rem',
     lineHeight: '3rem'
+  },
+  formLabel: {
+    fontWeight: '600'
   },
   errorMsg: {
     color: '#d61456',
@@ -113,7 +115,7 @@ export default function Home(props) {
           <div className="container mt-3">
             <div className="d-flex flex-column flex-md-row col-12 justify-content-between">
               <Form.Group className="mb-2 col-md-5">
-                <Form.Label htmlFor="firstName">First Name:</Form.Label>
+                <Form.Label htmlFor="firstName" style={styles.formLabel} className="text-color">First Name:</Form.Label>
                 <Form.Control
                   type="text"
                   name="firstName"
@@ -133,7 +135,7 @@ export default function Home(props) {
                 )}
               </Form.Group>
               <Form.Group className="mb-2 col-md-5">
-                <Form.Label htmlFor="lastName">Last Name:</Form.Label>
+                <Form.Label htmlFor="lastName" style={styles.formLabel} className="text-color">Last Name:</Form.Label>
                 <Form.Control
                   type="text"
                   name="lastName"
@@ -154,7 +156,7 @@ export default function Home(props) {
               </Form.Group>
             </div>
             <Form.Group className="mb-2" >
-              <Form.Label htmlFor="email">Email:</Form.Label>
+              <Form.Label htmlFor="email" style={styles.formLabel} className="text-color">Email:</Form.Label>
               <Form.Control
                 type="email"
                 name="email"
