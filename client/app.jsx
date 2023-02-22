@@ -1,6 +1,6 @@
 import React from 'react';
 import Home from './pages/home';
-import Header from './components/header';
+// import Header from './components/header';
 import Footer from './components/footer';
 import parseRoute from './lib/parse-route';
 import AppContext from './lib/app-context';
@@ -36,7 +36,7 @@ export default class App extends React.Component {
     return (
       <AppContext.Provider value={contextValue}>
         <>
-          <Header />
+          {/* <Header /> */}
           <PageContainer>
             {this.renderPage()}
           </PageContainer>

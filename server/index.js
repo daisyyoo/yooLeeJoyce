@@ -7,7 +7,7 @@ const app = express();
 
 app.use(staticMiddleware);
 
-app.get('/api/hello', (req, res) => {
+app.get('/saveTheDate', (req, res, next) => {
   res.json({ hello: 'world' });
 });
 
