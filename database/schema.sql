@@ -16,7 +16,7 @@ CREATE TABLE "public"."guestId" (
 
 
 CREATE TABLE "public"."saveTheDate" (
-	"guestId" int NOT NULL,
+	"guestId" int NOT NULL UNIQUE,
 	"firstName" TEXT NOT NULL,
 	"lastName" TEXT NOT NULL,
 	"email" TEXT NOT NULL
@@ -27,7 +27,7 @@ CREATE TABLE "public"."saveTheDate" (
 
 
 CREATE TABLE "public"."rsvp" (
-	"guestId" int NOT NULL,
+	"guestId" int NOT NULL UNIQUE,
 	"response" BOOLEAN NOT NULL
 ) WITH (
   OIDS=FALSE

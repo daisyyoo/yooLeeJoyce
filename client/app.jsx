@@ -6,20 +6,37 @@ import parseRoute from './lib/parse-route';
 import AppContext from './lib/app-context';
 import PageContainer from './components/page-container';
 import NotFound from './pages/not-found';
+import jwtDecode from 'jwt-decode';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      guestId: null,
       route: parseRoute(window.location.hash)
     };
+    this.submittedInfo = this.submittedInfo.bind(this);
   }
+
+  // react.router
+  // useEffect(() => {
+
+  // }, []);
 
   componentDidMount() {
     window.addEventListener('hashchange', event => {
       const route = parseRoute(window.location.hash);
       this.setState({ route });
     });
+    const token = window.localStorage.getItem('guestToken');
+    const guestId = token ? jwtDecode(token) : null;
+    this.setState({ guestId });
+  }
+
+  submittedInfo(info) {
+    const { guestId, token } = info;
+    window.localStorage.setItem('guestToken', token);
+    this.setState({ guestId });
   }
 
   renderPage() {
@@ -32,6 +49,7 @@ export default class App extends React.Component {
 
   render() {
     const { route } = this.state;
+    // add react context
     const contextValue = { route };
     return (
       <AppContext.Provider value={contextValue}>
