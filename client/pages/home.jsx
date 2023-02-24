@@ -23,13 +23,18 @@ const styles = {
   },
   title: {
     fontSize: '5rem',
-    lineHeight: '8rem',
-    height: '100%'
+    lineHeight: '7rem'
+  },
+  titleSymbol: {
+    fontSize: '4rem',
+    lineHeight: '4rem',
+    color: '#e3ca93'
   },
   image: {
     height: '450px',
     objectFit: 'cover',
-    borderRadius: '10px'
+    borderRadius: '10px',
+    outline: '8px double #e3ca93'
   },
   header: {
     fontSize: '3.3rem',
@@ -94,8 +99,11 @@ export default function Home(props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div style={styles.pageContainer}>
-        <div style={styles.backgroundImage1}>
-          <h1 style={styles.title} className="d-flex flex-column justify-content-around align-items-center text-center py-5">Joyce <br/>&amp; <br/>Kevin</h1>
+        <div style={styles.backgroundImage1} className="d-flex flex-column justify-content-center align-items-center text-center py-5">
+          <h1 style={styles.title}>
+            Joyce</h1>
+          <h1 style={styles.titleSymbol}>&amp;</h1>
+          <h1 style={styles.title}>Kevin</h1>
         </div>
       </div>
       <div style={styles.pageContainer} className="d-flex flex-column justify-content-center align-items-center">
