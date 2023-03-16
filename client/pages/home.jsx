@@ -42,8 +42,16 @@ const styles = {
     fontSize: '3.3rem',
     lineHeight: '3rem'
   },
+  date: {
+    lineHeight: '2.5rem',
+    paddingTop: '1rem'
+  },
+  dates: {
+    lineHeight: '2rem',
+    paddingBottom: '1.5rem'
+  },
   text: {
-    lineHeight: '3rem'
+    lineHeight: '1.7rem'
   },
   formLabel: {
     fontWeight: '600'
@@ -117,11 +125,11 @@ export default function Home(props) {
           <div className="d-flex flex-column text-center">
             <h1 style={styles.header} className="mt-5">Save the Date!</h1>
             <div style={styles.textBackground}>
-              <h2 style={styles.text} className="my-2 py-2">Saturday, June 24, 2023 </h2>
+              <h2 style={styles.date} className="my-2">Saturday, June 24, 2023</h2>
+              <h2 style={styles.dates} className="my-2">4:00 PM PST</h2>
               <h4 style={styles.text} >All Nations Church</h4>
               <h4 style={styles.text} >10000 Foothill Blvd</h4>
               <h4 style={styles.text} >Lake View Terrace, CA 91342</h4>
-              <h5 style={styles.text}>More details to come!</h5>
             </div>
           </div>
           <div className="container mt-3">
