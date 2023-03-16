@@ -22,12 +22,14 @@ const styles = {
     height: '105vh'
   },
   title: {
-    fontSize: '5rem',
-    lineHeight: '7rem'
+    fontFamily: 'DearlyScript',
+    fontSize: '7rem',
+    lineHeight: '13rem'
   },
   titleSymbol: {
-    fontSize: '4rem',
-    lineHeight: '4rem',
+    fontSize: '6rem',
+    lineHeight: '1rem',
+    paddingTop: '4rem',
     color: '#e3ca93'
   },
   image: {
@@ -115,8 +117,10 @@ export default function Home(props) {
           <div className="d-flex flex-column text-center">
             <h1 style={styles.header} className="mt-5">Save the Date!</h1>
             <div style={styles.textBackground}>
-              <h2 style={styles.text} className="my-2 py-2">June 24, 2023 </h2>
-              <h4 style={styles.text} >La Crescenta, CA</h4>
+              <h2 style={styles.text} className="my-2 py-2">Saturday, June 24, 2023 </h2>
+              <h4 style={styles.text} >All Nations Church</h4>
+              <h4 style={styles.text} >10000 Foothill Blvd</h4>
+              <h4 style={styles.text} >Lake View Terrace, CA 91342</h4>
               <h5 style={styles.text}>More details to come!</h5>
             </div>
           </div>
@@ -184,7 +188,7 @@ export default function Home(props) {
               )}
             </Form.Group>
           </div>
-          <div className="row">
+          <div className="container">
             <div className="d-flex justify-content-center">
               <Button
                 type="submit"
@@ -192,7 +196,7 @@ export default function Home(props) {
                 <b>SUBMIT</b></Button>
             </div>
           </div>
-          <div className="row flex-column my-2">
+          <div className="container flex-column my-2">
             <div className="p-3 py-2 py-md-0">
               <h6 style={styles.submitMsg}>
                 {submittedData ? 'Thanks! Keep an eye out for more details!' : ''}
