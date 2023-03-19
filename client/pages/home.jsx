@@ -60,15 +60,12 @@ const styles = {
     color: '#d61456',
     fontSize: '0.8rem',
     lineHeight: '1.7rem'
-  },
-  submitMsg: {
-    fontSize: '1.5rem',
-    lineHeight: '3rem'
   }
 };
 
 export default function Home(props) {
   const [submittedData, setSubmittedData] = useState(false);
+  const [guestId, setGuestId] = useState();
 
   const {
     register,
@@ -84,19 +81,25 @@ export default function Home(props) {
     }
   });
 
-  const onSubmit = data => {
+  const onSubmit = async data => {
   // event.preventDefault();
-    const req = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    };
-    fetch('/saveTheDate', req)
-      .then(res => res.text())
-      .then(response => {
-      // setLoading(true);
-      });
-  // .catch(setError);
+    if (guestId) {
+      return;
+    // probably put some error message saying you've already submitted your info
+    }
+    try {
+      const req = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      };
+      const response = await fetch('/api/saveTheDate', req);
+      const result = await response.json();
+      const { guestId, token } = result;
+      console.log('token', token);
+      setGuestId(guestId);
+      window.localStorage.setItem('guestToken', token);
+    } catch (err) { console.error(err); }
   };
 
   useEffect(() => {
@@ -116,11 +119,11 @@ export default function Home(props) {
           <h1 style={styles.title}>Kevin</h1>
         </div>
       </div>
-      <div style={styles.pageContainer} className="d-flex flex-column justify-content-center align-items-center">
+      <div className="d-flex flex-column justify-content-center align-items-center">
         <img style={styles.image} src="/images/test-pic.JPG" alt="joyceAndKevinPic"/>
         <h3 style={styles.header} className="text-center py-4 my-4">We&apos;re getting married!</h3>
       </div>
-      <div style={styles.pageContainer}>
+      <div >
         <div style={styles.backgroundImage2}>
           <div className="d-flex flex-column text-center">
             <h1 style={styles.header} className="mt-5">Save the Date!</h1>
@@ -204,9 +207,9 @@ export default function Home(props) {
                 <b>SUBMIT</b></Button>
             </div>
           </div>
-          <div className="container flex-column my-2">
+          <div className="container flex-column my-5">
             <div className="p-3 py-2 py-md-0">
-              <h6 style={styles.submitMsg}>
+              <h6 className="text-center submitted-msg">
                 {submittedData ? 'Thanks! Keep an eye out for more details!' : ''}
               </h6>
             </div>

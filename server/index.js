@@ -2,10 +2,10 @@ require('dotenv/config');
 const express = require('express');
 const pg = require('pg');
 const jwt = require('jsonwebtoken');
-const ClientError = require('./client-error');
+// const ClientError = require('./client-error');
 const staticMiddleware = require('./static-middleware');
 const errorMiddleware = require('./error-middleware');
-const validator = require('email-validator');
+// const validator = require('email-validator');
 const app = express();
 const db = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
@@ -17,49 +17,29 @@ const db = new pg.Pool({
 app.use(express.json());
 app.use(staticMiddleware);
 
-app.post('/saveTheDate', (req, res, next) => {
-  const token = req.get('x-access-token');
+app.post('/api/saveTheDate', async (req, res, next) => {
   const { firstName, lastName, email } = req.body;
-
-  if (!token) {
+  try {
     const sql = `
-  insert into "guestId"
-  default values
-  returning *
-  `;
-    db.query(sql)
-      .then(result => {
-        const guestId = result.rows[0].guestId;
-        const token = jwt.sign(guestId, process.env.TOKEN_SECRET);
+    insert into "guestId"
+    default values
+    returning *
+    `;
+    const result = await db.query(sql);
+    const guestId = result.rows[0].guestId;
+    const token = jwt.sign(guestId, process.env.TOKEN_SECRET);
 
-        if (firstName.length > 2 || lastName.length > 2) {
-          throw new ClientError(400, 'First and last name should be more than 2 characters.');
-        }
-        if (!validator.validate(email)) {
-          throw new ClientError(400, 'email must be a valid email.');
-        }
-
-        const sql = `
+    const sql2 = `
       insert into "saveTheDate" ("guestId", "firstName", "lastName", "email")
       values ($1, $2, $3, $4)
       returning *
     `;
-
-        const params = [guestId, firstName, lastName, email];
-        db.query(sql, params)
-          .then(result => {
-            const [newGuest] = result.rows;
-            const guestInfo = { guestId, token, newGuest };
-            res.status(201).json(guestInfo);
-          })
-          .catch(err => next(err));
-      });
-  } else {
-    const guestId = jwt.verify(token, process.env.TOKEN_SECRET);
-    if (guestId) {
-      throw new ClientError(200, 'You have already submitted your information.');
-    }
-  }
+    const params2 = [guestId, firstName, lastName, email];
+    const result2 = await db.query(sql2, params2);
+    const [newGuest] = result2.rows;
+    const guestInfo = { guestId, token, newGuest };
+    res.status(201).json(guestInfo);
+  } catch (err) { return next(err); }
 });
 
 app.use(errorMiddleware);
