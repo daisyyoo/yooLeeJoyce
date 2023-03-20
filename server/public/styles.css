@@ -53,9 +53,10 @@ h5,
 }
 
 .submitted-msg {
-  line-height: 3rem;
+  line-height: 2rem;
   background-color: #d6dfd1;
   opacity: 0.85;
   border-radius: 5px;
   border: solid 2px #e3ca93;
+  margin-bottom: 3rem;
 }

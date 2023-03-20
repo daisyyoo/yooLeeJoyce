@@ -135,8 +135,8 @@ export default function Home(props) {
               <h4 style={styles.text} >Lake View Terrace, CA 91342</h4>
             </div>
           </div>
-          <div className="container mt-3">
-            <div className="d-flex flex-column flex-md-row col-12 justify-content-between">
+          <div className="container mt-5">
+            <div className="row d-flex flex-column flex-md-row justify-content-between">
               <Form.Group className="mb-2 col-md-5">
                 <Form.Label htmlFor="firstName" style={styles.formLabel} className="text-color">First Name:</Form.Label>
                 <Form.Control
@@ -178,40 +178,40 @@ export default function Home(props) {
                 )}
               </Form.Group>
             </div>
-            <Form.Group className="mb-2" >
-              <Form.Label htmlFor="email" style={styles.formLabel} className="text-color">Email:</Form.Label>
-              <Form.Control
-                type="email"
-                name="email"
-                {...register('email', {
-                  required: true,
-                  pattern: {
-                    value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
-                    message: 'Please enter a valid email'
-                  }
-                })}
-                placeholder="Email" />
-              {errors.email?.type === 'required' && (
-                <p className="errorMsg px-3" style={styles.errorMsg}>Email address is required.</p>
-              )}
-              {errors.email?.type === 'pattern' && (
-                <p className="errorMsg px-3" style={styles.errorMsg}>{errors.email.message}</p>
-              )}
-            </Form.Group>
-          </div>
-          <div className="container">
-            <div className="d-flex justify-content-center">
+            <div className="row d-flex flex-column flex-md-row justify-content-between">
+              <Form.Group className="mb-2" >
+                <Form.Label htmlFor="email" style={styles.formLabel} className="text-color">Email:</Form.Label>
+                <Form.Control
+                  type="email"
+                  name="email"
+                  {...register('email', {
+                    required: true,
+                    pattern: {
+                      value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
+                      message: 'Please enter a valid email'
+                    }
+                  })}
+                  placeholder="Email" />
+                {errors.email?.type === 'required' && (
+                  <p className="errorMsg px-3" style={styles.errorMsg}>Email address is required.</p>
+                )}
+                {errors.email?.type === 'pattern' && (
+                  <p className="errorMsg px-3" style={styles.errorMsg}>{errors.email.message}</p>
+                )}
+              </Form.Group>
+            </div>
+            <div className="row d-flex justify-content-center">
               <Button
                 type="submit"
-                className="all-button m-2 px-5">
+                className="all-button my-5 px-5 w-25">
                 <b>SUBMIT</b></Button>
             </div>
-          </div>
-          <div className="container flex-column my-5">
-            <div className="p-3 py-2 py-md-0">
-              <h6 className="text-center submitted-msg">
-                {submittedData ? 'Thanks! Keep an eye out for more details!' : ''}
-              </h6>
+            <div className="row flex-column">
+              <div className="p-3 py-2 py-md-0 d-flex justify-content-center">
+                <h6 className={submittedData ? 'text-center submitted-msg w-75' : 'd-none'}>
+                  {submittedData ? 'Thanks! Keep an eye out for more details!' : ''}
+                </h6>
+              </div>
             </div>
           </div>
         </div>
