@@ -1,0 +1,62 @@
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
+h1,
+h3,
+.navbar-brand {
+  font-family: Parisienne, serif;
+  font-weight: 600;
+  color: #6f8c69;
+}
+
+h2,
+h4,
+h5,
+.text-color {
+  color: #6f8c69;
+}
+
+.form-control {
+  border: solid 2px #e3ca93;
+}
+
+.all-button {
+  background-color: #fff;
+  color: #6f8c69;
+  border: solid 2px #6f8c69;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.all-button:hover {
+  background-color: #6f8c69 !important;
+  color: #fff !important;
+  border: solid 2px #e3ca93 !important;
+  border-radius: 5px;
+}
+
+.all-button:active {
+  background-color: #fff !important;
+  color: #6f8c69 !important;
+  font-weight: 600;
+  border: solid 2px #6f8c69 !important;
+  border-radius: 5px;
+}
+
+.all-button:focus {
+  outline: solid 1px #6f8c69;
+}
+
+.submitted-msg {
+  line-height: 2rem;
+  background-color: #d6dfd1;
+  opacity: 0.85;
+  border-radius: 5px;
+  border: solid 2px #e3ca93;
+  margin-bottom: 3rem;
+}
