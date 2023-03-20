@@ -19,7 +19,8 @@ CREATE TABLE "public"."saveTheDate" (
 	"guestId" int NOT NULL UNIQUE,
 	"firstName" TEXT NOT NULL,
 	"lastName" TEXT NOT NULL,
-	"email" TEXT NOT NULL
+	"email" TEXT NOT NULL,
+	"sendEmail" BOOLEAN NOT NULL
 ) WITH (
   OIDS=FALSE
 );
