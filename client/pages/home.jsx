@@ -33,7 +33,7 @@ const styles = {
     color: '#e3ca93'
   },
   image: {
-    height: '450px',
+    width: '90%',
     objectFit: 'cover',
     borderRadius: '10px',
     outline: '8px double #e3ca93'
@@ -120,8 +120,11 @@ export default function Home(props) {
         </div>
       </div>
       <div className="d-flex flex-column justify-content-center align-items-center">
-        <img style={styles.image} src="/images/test-pic.JPG" alt="joyceAndKevinPic"/>
         <h3 style={styles.header} className="text-center py-4 my-4">We&apos;re getting married!</h3>
+        <img style={styles.image} src="/images/DSC_3247.webp" alt="joyceAndKevinPic1"/>
+        <img style={styles.image} className="my-5" src="/images/DSC_4160.webp" alt="joyceAndKevinPic2" />
+        <img style={styles.image} src="/images/DSC_5323.webp" alt="joyceAndKevinPic3" />
+
       </div>
       <div >
         <div style={styles.backgroundImage2}>
