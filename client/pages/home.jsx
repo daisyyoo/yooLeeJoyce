@@ -53,6 +53,9 @@ const styles = {
   text: {
     lineHeight: '1.7rem'
   },
+  subtext: {
+    lineHeight: '1.5rem'
+  },
   formLabel: {
     fontWeight: '600'
   },
@@ -121,15 +124,16 @@ export default function Home(props) {
       </div>
       <div className="d-flex flex-column justify-content-center align-items-center">
         <h3 style={styles.header} className="text-center py-4 my-4">We&apos;re getting married!</h3>
-        <img style={styles.image} src="/images/DSC_3247.webp" alt="joyceAndKevinPic1"/>
+        <img style={styles.image} src="/images/image2.webp" alt="joyceAndKevinPic1"/>
         <img style={styles.image} className="my-5" src="/images/DSC_4160.webp" alt="joyceAndKevinPic2" />
-        <img style={styles.image} src="/images/DSC_5323.webp" alt="joyceAndKevinPic3" />
+        <img style={styles.image} src="/images/image1.webp" alt="joyceAndKevinPic3" />
 
       </div>
       <div >
         <div style={styles.backgroundImage2}>
           <div className="d-flex flex-column text-center">
             <h1 style={styles.header} className="mt-5">Save the Date!</h1>
+            <h5 style={styles.subtext}>Invitation to follow</h5>
             <div style={styles.textBackground}>
               <h2 style={styles.date} className="my-2">Saturday, June 24, 2023</h2>
               <h2 style={styles.dates} className="my-2">4:00 PM PST</h2>
