@@ -19,8 +19,7 @@ CREATE TABLE "public"."saveTheDate" (
 	"guestId" int NOT NULL UNIQUE,
 	"firstName" TEXT NOT NULL,
 	"lastName" TEXT NOT NULL,
-	"email" TEXT NOT NULL,
-	"sendEmail" BOOLEAN NOT NULL
+	"email" TEXT NOT NULL
 ) WITH (
   OIDS=FALSE
 );
@@ -41,6 +40,13 @@ CREATE TABLE "public"."guestList" (
 	"attending" BOOLEAN NOT NULL,
 	"meal" TEXT NOT NULL,
 	"wordsOfWisdom" TEXT NOT NULL
+) WITH (
+  OIDS=FALSE
+);
+
+CREATE TABLE "public"."users" (
+	"username" TEXT NOT NULL UNIQUE,
+	"hashedPassword" TEXT NOT NULL
 ) WITH (
   OIDS=FALSE
 );

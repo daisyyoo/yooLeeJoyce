@@ -1,38 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Home from './pages/home';
+import HomeAdmin from './pages/homeAdmin';
+import Login from './pages/login';
+import ProtectedRoutes from './pages/protected-routes';
 import { Route, Routes } from 'react-router-dom';
 // import Header from './components/header';
 import Footer from './components/footer';
-// import parseRoute from './lib/parse-route';
-// import AppContext from './lib/app-context';
+import AppContext from './lib/app-context';
 import PageContainer from './components/page-container';
 // import NotFound from './pages/not-found';
-// import jwtDecode from 'jwt-decode';
+import jwtDecode from 'jwt-decode';
 
 export default function App() {
-  // const [guestId, setGuestId] = useState();
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     guestId: null,
-  //     route: parseRoute(window.location.hash)
-  //   };
-  //   this.submittedInfo = this.submittedInfo.bind(this);
-  // }
+  const [user, setUser] = useState();
 
-  // useEffect(() => {
+  useEffect(() => {
+    const token = window.localStorage.getItem('basketToken');
+    const user = token ? jwtDecode(token) : null;
+    setUser(user);
+  }, []);
 
-  // }, []);
+  const login = result => {
+    const { user, token } = result;
+    window.localStorage.setItem('basketToken', token);
+    setUser(user);
+  };
 
-  // componentDidMount() {
-  //   window.addEventListener('hashchange', event => {
-  //     const route = parseRoute(window.location.hash);
-  //     this.setState({ route });
-  //   });
-  //   const token = window.localStorage.getItem('guestToken');
-  //   const guestId = token ? jwtDecode(token) : null;
-  //   this.setState({ guestId });
-  // }
+  const logout = () => {
+    window.localStorage.removeItem('basketToken');
+    setUser('');
+  };
 
   // const submittedInfo = info => {
   //   const { guestId, token } = info;
@@ -49,17 +46,20 @@ export default function App() {
   //   return <NotFound />;
   // }
 
-  // const { route } = this.state;
-  // add react context
+  const contextValue = { user, login, logout };
   return (
-    <>
+    <AppContext.Provider value={contextValue}>
       {/* <Header /> */}
       <Routes>
         <Route path='/' element={<PageContainer />}/>
-        <Route index element ={<Home />}/>
+        <Route index element ={<Login />}/>
+        <Route element={<ProtectedRoutes />} >
+          <Route path='home' element={<Home /> } />
+          <Route path='homeAdmin' element={<HomeAdmin />} />
+        </Route>
       </Routes>
       <Footer />
-    </>
+    </AppContext.Provider>
 
   );
 }

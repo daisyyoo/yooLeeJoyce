@@ -2,9 +2,11 @@ require('dotenv/config');
 const express = require('express');
 const pg = require('pg');
 const jwt = require('jsonwebtoken');
-// const ClientError = require('./client-error');
+const argon2 = require('argon2');
+const ClientError = require('./client-error');
 const staticMiddleware = require('./static-middleware');
 const errorMiddleware = require('./error-middleware');
+const authorizationMiddleware = require('./authorization-middleware');
 
 // const validator = require('email-validator');
 const app = express();
@@ -19,6 +21,40 @@ const db = new pg.Pool({
 app.use(express.json());
 app.use(staticMiddleware);
 
+app.post('/api/sign-in', async (req, res, next) => {
+  try {
+    const { username, password } = req.body;
+    if (!username || !password) {
+      throw new ClientError(401, 'invalid login');
+    }
+    const sql = `
+      select "userId",
+            "hashedPassword"
+        from "users"
+      where "username" = $1
+    `;
+    const params = [username];
+    const result = await db.query(sql, params);
+    const [user] = result.rows;
+    if (!user) {
+      throw new ClientError(401, 'invalid login');
+    }
+    const { userId, hashedPassword } = user;
+    return argon2
+      .verify(hashedPassword, password)
+      .then(isMatching => {
+        if (!isMatching) {
+          throw new ClientError(401, 'invalid login');
+        }
+        const payload = { userId, username };
+        const token = jwt.sign(payload, process.env.TOKEN_SECRET);
+        res.json({ token, user: payload });
+      });
+  } catch (err) { return next(err); }
+});
+
+app.use(authorizationMiddleware);
+
 app.post('/api/saveTheDate', async (req, res, next) => {
   const { firstName, lastName, email } = req.body;
   try {
@@ -29,7 +65,6 @@ app.post('/api/saveTheDate', async (req, res, next) => {
     `;
     const result = await db.query(sql);
     const guestId = result.rows[0].guestId;
-    const token = jwt.sign(guestId, process.env.TOKEN_SECRET);
 
     const sql2 = `
       insert into "saveTheDate" ("guestId", "firstName", "lastName", "email")
@@ -39,7 +74,7 @@ app.post('/api/saveTheDate', async (req, res, next) => {
     const params2 = [guestId, firstName, lastName, email];
     const result2 = await db.query(sql2, params2);
     const [newGuest] = result2.rows;
-    const guestInfo = { guestId, token, newGuest };
+    const guestInfo = { guestId, newGuest };
     res.status(201).json(guestInfo);
   } catch (err) { return next(err); }
 });
