@@ -1,0 +1,9 @@
+          List of relations
+ Schema |    Name     | Type  | Owner 
+--------+-------------+-------+-------
+ public | guestId     | table | dev
+ public | guestList   | table | dev
+ public | rsvp        | table | dev
+ public | saveTheDate | table | dev
+(4 rows)
+

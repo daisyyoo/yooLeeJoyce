@@ -5,8 +5,10 @@ const jwt = require('jsonwebtoken');
 // const ClientError = require('./client-error');
 const staticMiddleware = require('./static-middleware');
 const errorMiddleware = require('./error-middleware');
+
 // const validator = require('email-validator');
 const app = express();
+
 const db = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
@@ -39,6 +41,19 @@ app.post('/api/saveTheDate', async (req, res, next) => {
     const [newGuest] = result2.rows;
     const guestInfo = { guestId, token, newGuest };
     res.status(201).json(guestInfo);
+  } catch (err) { return next(err); }
+});
+
+app.get('/api/getSaveTheDateList', async (req, res, next) => {
+  try {
+    const sql = `
+    select "firstName",
+          "lastName",
+          "email"
+    from "saveTheDate"
+    `;
+    const result = await db.query(sql);
+    res.json(result.rows);
   } catch (err) { return next(err); }
 });
 
