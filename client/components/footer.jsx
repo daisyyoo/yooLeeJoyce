@@ -16,7 +16,7 @@ const styles = {
     border: 'none'
   },
   image: {
-    height: '100px',
+    height: '30px',
     objectFit: 'cover'
   }
 };
@@ -51,13 +51,11 @@ export default function Footer() {
   return (
     <div className="w-100">
 
-      <div style={styles.bgcolor} className="w-100 d-flex">
-        <div className="d-flex w-50 justify-content-center">
+      <div style={styles.bgcolor} className="w-100 d-flex justify-content-center">
+        <div className="d-flex">
           <button style={styles.button} onClick={sendExcel} >
             <img style={styles.image} src='/images/logo-sm.png'/>
           </button>
-        </div>
-        <div className="d-flex justify-content-center align-items-center w-50">
           <p style={styles.text} className="m-0 text-center">Website created @ByDaisy</p>
         </div>
       </div>
