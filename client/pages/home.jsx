@@ -68,7 +68,6 @@ const styles = {
 
 export default function Home(props) {
   const [submittedData, setSubmittedData] = useState(false);
-  const [guestId, setGuestId] = useState();
 
   const {
     register,
@@ -86,22 +85,13 @@ export default function Home(props) {
 
   const onSubmit = async data => {
   // event.preventDefault();
-    if (guestId) {
-      return;
-    // probably put some error message saying you've already submitted your info
-    }
     try {
       const req = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       };
-      const response = await fetch('/api/saveTheDate', req);
-      const result = await response.json();
-      const { guestId, token } = result;
-      console.log('token', token);
-      setGuestId(guestId);
-      window.localStorage.setItem('guestToken', token);
+      await fetch('https://formsubmit.co/ajax/yooleejoyce@gmail.com', req);
     } catch (err) { console.error(err); }
   };
 
