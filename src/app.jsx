@@ -66,7 +66,7 @@ const styles = {
   }
 };
 
-export default function Home(props) {
+export default function App() {
   const [submittedData, setSubmittedData] = useState(false);
 
   const {
@@ -84,14 +84,14 @@ export default function Home(props) {
   });
 
   const onSubmit = async data => {
-  // event.preventDefault();
+    // event.preventDefault();
     try {
       const req = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       };
-      await fetch('https://formsubmit.co/ajax/yooleejoyce@gmail.com', req);
+      await fetch('https://formsubmit.co/ajax/20c810cfc4f938313b2ba13286160120', req);
     } catch (err) { console.error(err); }
   };
 
@@ -114,7 +114,7 @@ export default function Home(props) {
       </div>
       <div className="d-flex flex-column justify-content-center align-items-center">
         <h3 style={styles.header} className="text-center py-4 my-4">We&apos;re getting married!</h3>
-        <img style={styles.image} src="/images/image2.webp" alt="joyceAndKevinPic1"/>
+        <img style={styles.image} src="/images/image2.webp" alt="joyceAndKevinPic1" />
         <img style={styles.image} className="my-5" src="/images/DSC_4160.webp" alt="joyceAndKevinPic2" />
         <img style={styles.image} src="/images/image1.webp" alt="joyceAndKevinPic3" />
 
