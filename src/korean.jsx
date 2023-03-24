@@ -113,7 +113,7 @@ export default function App() {
         </div>
       </div>
       <div className="d-flex flex-column justify-content-center align-items-center">
-        <h3 style={styles.header} className="text-center py-4 my-4">We&apos;re getting married!</h3>
+        <h3 style={styles.header} className="text-center py-4 my-4">우리 결혼해요!</h3>
         <img style={styles.image} src="/images/image2.webp" alt="joyceAndKevinPic1" />
         <img style={styles.image} className="my-5" src="/images/DSC_4160.webp" alt="joyceAndKevinPic2" />
         <img style={styles.image} src="/images/image1.webp" alt="joyceAndKevinPic3" />
@@ -122,11 +122,11 @@ export default function App() {
       <div >
         <div style={styles.backgroundImage2}>
           <div className="d-flex flex-column text-center">
-            <h1 style={styles.header} className="mt-5">Save the Date!</h1>
-            <h5 style={styles.subtext}>Invitation to follow</h5>
+            <h1 style={styles.header} className="mt-5">날자 예약해주세요</h1>
+            <h5 style={styles.subtext}>초대장은 따로 보내드립니다</h5>
             <div style={styles.textBackground}>
-              <h2 style={styles.date} className="my-2">Saturday, June 24, 2023</h2>
-              <h2 style={styles.dates} className="my-2">4:00 PM PST</h2>
+              <h2 style={styles.date} className="my-2">2023년 6월 24일 토요일</h2>
+              <h2 style={styles.dates} className="my-2">오후 4시</h2>
               <h4 style={styles.text} >All Nations Church</h4>
               <h4 style={styles.text} >10000 Foothill Blvd</h4>
               <h4 style={styles.text} >Lake View Terrace, CA 91342</h4>
@@ -206,7 +206,7 @@ export default function App() {
             <div className="row flex-column">
               <div className="p-3 py-2 py-md-0 d-flex justify-content-center">
                 <h6 className={submittedData ? 'text-center submitted-msg w-75' : 'd-none'}>
-                  {submittedData ? 'Thanks! Keep an eye out for more details!' : ''}
+                  {submittedData ? '고맙습니다! 초대장 곳 보내드리겠습니다!' : ''}
                 </h6>
               </div>
             </div>
