@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { Link } from 'react-router-dom';
 
 const styles = {
   backgroundImage1: {
@@ -66,7 +67,7 @@ const styles = {
   }
 };
 
-export default function App() {
+export default function Korean() {
   const [submittedData, setSubmittedData] = useState(false);
 
   const {
@@ -104,6 +105,7 @@ export default function App() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <Link to="/english" className="button-all">English</Link>
       <div style={styles.pageContainer}>
         <div style={styles.backgroundImage1} className="d-flex flex-column justify-content-center align-items-center text-center py-5">
           <h1 style={styles.title}>
