@@ -105,7 +105,6 @@ export default function Korean() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Link to="/english" className="button-all">English</Link>
       <div style={styles.pageContainer}>
         <div style={styles.backgroundImage1} className="d-flex flex-column justify-content-center align-items-center text-center py-5">
           <h1 style={styles.title}>
