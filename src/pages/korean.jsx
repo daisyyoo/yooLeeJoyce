@@ -19,6 +19,14 @@ const styles = {
     width: '100%',
     height: '100%'
   },
+  backgroundImage3: {
+    backgroundImage: 'url("/images/eucalyptus-img-7.jpg")',
+    backgroundSize: 'cover',
+    backgroundPosition: '70%',
+    width: '100%',
+    height: '100%',
+    opacity: '0.75'
+  },
   pageContainer: {
     height: '105vh'
   },
@@ -39,10 +47,6 @@ const styles = {
     borderRadius: '10px',
     outline: '8px double #e3ca93'
   },
-  header: {
-    fontSize: '3.3rem',
-    lineHeight: '3rem'
-  },
   date: {
     lineHeight: '2.5rem',
     paddingTop: '1rem'
@@ -54,8 +58,8 @@ const styles = {
   text: {
     lineHeight: '1.7rem'
   },
-  subtext: {
-    lineHeight: '1.5rem'
+  koreanText: {
+    lineHeight: '3rem'
   },
   formLabel: {
     fontWeight: '600'
@@ -113,30 +117,51 @@ export default function Korean() {
           <h1 style={styles.title}>Kevin</h1>
         </div>
       </div>
-      <div className="d-flex flex-column justify-content-center align-items-center">
-        <h3 style={styles.header} className="text-center py-4 my-4">우리 결혼해요!</h3>
+      <div style={styles.pageContainer}>
+        <div style={styles.backgroundImage3} className="d-flex flex-column justify-content-center align-items-center">
+          <h4 style={styles.koreanText} className="text-center korean mt-3">우리라는 이름으로 시작하는 삶.<br/>그 설렘의 순간에 소중한 분을 초대합니다.</h4>
+          <div className="w-50">
+            <h4 style={styles.koreanText} className="text-center py-3 korean">
+            하나님 안에서 서로 사랑을 시작한 저희가 이제 부부의 연으로
+            예수님 안에서 한 길을 바라보려 합니다. 평생을 성령님 안에서 서로
+            사랑하는 남편, 아내로 살겠습니다. 한 곳을 바라보며 첫발을 떼는
+            자리입니다. 그 시작의 자리에 함께해 주시어 축복해 주시기 바랍니다.</h4>
+          </div>
+          <div className="d-flex text-center align-items-center py-4">
+            <h3 className="korean fw-bold">유병학  김효숙</h3>
+            <h4 className="px-2 korean">의 아들</h4>
+            <h3 className="korean fw-bold">재진</h3>
+          </div>
+          <div className="d-flex text-center align-items-center mb-3">
+            <h3 className="korean fw-bold">이진형  이현진</h3>
+            <h4 className="px-2 korean">의 딸</h4>
+            <h3 className="korean fw-bold">재영</h3>
+          </div>
+        </div>
+      </div>
+      <div className="d-flex flex-column justify-content-center align-items-center my-5">
         <img style={styles.image} src="/images/image2.webp" alt="joyceAndKevinPic1" />
         <img style={styles.image} className="my-5" src="/images/DSC_4160.webp" alt="joyceAndKevinPic2" />
         <img style={styles.image} src="/images/image1.webp" alt="joyceAndKevinPic3" />
-
       </div>
       <div >
         <div style={styles.backgroundImage2}>
           <div className="d-flex flex-column text-center">
-            <h1 style={styles.header} className="mt-5">날자 예약해주세요</h1>
-            <h5 style={styles.subtext}>초대장은 따로 보내드립니다</h5>
+            <h1 style={styles.header} className="mt-5 mb-3">Save The Date</h1>
             <div style={styles.textBackground}>
-              <h2 style={styles.date} className="my-2">2023년 6월 24일 토요일</h2>
-              <h2 style={styles.dates} className="my-2">오후 4시</h2>
-              <h4 style={styles.text} >All Nations Church</h4>
+              <h2 style={styles.date} className="my-2 korean">2023년 6월 24일 토요일</h2>
+              <h2 style={styles.dates} className="my-2 korean">오후 4시</h2>
+              <h4 style={styles.text}  className="mt-3">All Nations Church</h4>
               <h4 style={styles.text} >10000 Foothill Blvd</h4>
               <h4 style={styles.text} >Lake View Terrace, CA 91342</h4>
+              <h4 style={styles.koreanText} className="korean py-5">초대장을 보낼 수 있도록 성함과<br/>
+                이메일 주소를 아래에 입력해 주세요.</h4>
             </div>
           </div>
           <div className="container mt-5">
             <div className="row d-flex flex-column flex-md-row justify-content-between">
               <Form.Group className="mb-2 col-md-5">
-                <Form.Label htmlFor="firstName" style={styles.formLabel} className="text-color">First Name:</Form.Label>
+                <Form.Label htmlFor="firstName" style={styles.formLabel} className="text-color">First Name: &rpar한글/영어&rpar</Form.Label>
                 <Form.Control
                   type="text"
                   name="firstName"
@@ -163,8 +188,8 @@ export default function Korean() {
                   {...register('lastName', {
                     required: true,
                     minLength: {
-                      value: 2,
-                      message: 'Last name should be at least 2 characters.'
+                      value: 1,
+                      message: 'Last name should be at least 1 characters.'
                     }
                   })}
                   placeholder="Last Name" />
@@ -206,7 +231,7 @@ export default function Korean() {
             </div>
             <div className="row flex-column">
               <div className="p-3 py-2 py-md-0 d-flex justify-content-center">
-                <h6 className={submittedData ? 'text-center submitted-msg w-75' : 'd-none'}>
+                <h6 className={submittedData ? 'text-center submitted-msg w-75 korean' : 'd-none'}>
                   {submittedData ? '고맙습니다! 초대장 곳 보내드리겠습니다!' : ''}
                 </h6>
               </div>
