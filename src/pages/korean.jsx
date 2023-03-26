@@ -161,7 +161,7 @@ export default function Korean() {
           <div className="container mt-5">
             <div className="row d-flex flex-column flex-md-row justify-content-between">
               <Form.Group className="mb-2 col-md-5">
-                <Form.Label htmlFor="firstName" style={styles.formLabel} className="text-color">First Name: &rpar한글/영어&rpar</Form.Label>
+                <Form.Label htmlFor="firstName" style={styles.formLabel} className="text-color">First Name:</Form.Label>
                 <Form.Control
                   type="text"
                   name="firstName"
