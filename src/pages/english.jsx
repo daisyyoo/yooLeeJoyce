@@ -64,6 +64,11 @@ const styles = {
     color: '#d61456',
     fontSize: '0.8rem',
     lineHeight: '1.7rem'
+  },
+  opaqueBackground: {
+    background: '#fff',
+    opacity: '0.7',
+    borderRadius: '5px'
   }
 };
 
@@ -121,8 +126,8 @@ export default function English() {
 
       </div>
       <div>
-        <div style={styles.backgroundImage2}>
-          <div className="d-flex flex-column text-center">
+        <div style={styles.backgroundImage2} className="d-flex flex-column justify-content-center align-items-center">
+          <div style={styles.opaqueBackground} className="d-flex flex-column text-center mt-5">
             <h1 style={styles.header} className="mt-5">Save the Date!</h1>
             <h5 style={styles.subtext}>Invitation to follow</h5>
             <div style={styles.textBackground}>

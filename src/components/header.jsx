@@ -9,9 +9,9 @@ const Header = () => {
       <Navbar className="color-nav" expanded={isOpen} expand="md" sticky="top" >
         <Container fluid>
           <Navbar.Brand to="/" className="px-sm-5">YooLeeJoyce</Navbar.Brand>
-          <Nav className="justify-content-end flex-grow-1 pe-3" >
-            <NavLink className="px-3 px-lg-3 menu-link" to="/" onClick={() => setOpen(false)}>ENGLISH</NavLink>
-            <NavLink className="px-3 px-lg-3 menu-link" to="/korean" onClick={() => setOpen(false)}>한국어</NavLink>
+          <Nav className="d-flex flex-row justify-end-content" >
+            <NavLink className="menu-link" to="/" onClick={() => setOpen(false)}>ENGLISH</NavLink>
+            <NavLink className="menu-link2" to="/korean" onClick={() => setOpen(false)}>한국어</NavLink>
           </Nav>
         </Container>
       </Navbar>

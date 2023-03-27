@@ -68,6 +68,16 @@ h6,
   color: #6f8c69 !important;
 }
 
+.menu-link2 {
+  text-decoration: none !important;
+  padding: 0.5rem;
+  color: #222b13 !important;
+}
+
 .korean {
   font-family: 'Noto Serif KR', serif;
+}
+
+.dark-text {
+  color: #111509;
 }
