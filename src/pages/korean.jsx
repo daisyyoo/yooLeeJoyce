@@ -42,8 +42,7 @@ const styles = {
   title: {
     fontFamily: 'DearlyScript',
     fontSize: '7rem',
-    lineHeight: '13rem',
-    color: '#222b13'
+    lineHeight: '13rem'
   },
   titleSymbol: {
     fontSize: '6rem',
