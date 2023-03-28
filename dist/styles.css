@@ -66,16 +66,34 @@ h6,
   text-decoration: none !important;
   padding: 0.5rem;
   color: #6f8c69 !important;
+  border: none;
+}
+
+.menu-link-view {
+  text-decoration: none !important;
+  padding: 0.5rem;
+  color: #6f8c69 !important;
+  border: solid 1px #222b13;
+  border-radius: 5px;
 }
 
 .menu-link2 {
   text-decoration: none !important;
   padding: 0.5rem;
   color: #222b13 !important;
+  border: none;
+}
+
+.menu-link2-view {
+  text-decoration: none !important;
+  padding: 0.5rem;
+  color: #222b13 !important;
+  border: solid 1px #222b13;
+  border-radius: 5px;
 }
 
 .korean {
-  font-family: 'Noto Serif KR', serif;
+  font-family: "Noto Serif KR", serif;
 }
 
 .dark-text {
