@@ -117,16 +117,16 @@ export default function English() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div style={styles.pageContainer}>
-        <animated.div style={props}>
+      <animated.div style={props}>
+        <div style={styles.pageContainer}>
           <div style={styles.backgroundImage1} className="d-flex flex-column justify-content-center align-items-center text-center py-5">
             <h1 style={styles.title}>
               Joyce</h1>
             <h1 style={styles.titleSymbol}>&amp;</h1>
             <h1 style={styles.title}>Kevin</h1>
           </div>
-        </animated.div>
-      </div>
+        </div>
+      </animated.div>
       <div className="d-flex flex-column justify-content-center align-items-center">
         <h3 style={styles.header} className="text-center py-4 my-4">We&apos;re getting married!</h3>
         <img style={styles.image} src="/images/image2.webp" alt="joyceAndKevinPic1" />
