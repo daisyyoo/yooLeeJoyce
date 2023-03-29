@@ -6,6 +6,7 @@
   "main": "server/index.js",
   "scripts": {
     "build": "NODE_ENV=production webpack",
+    "test": "NODE_ENV=development webpack",
     "prepare": "husky install",
     "lint": "eslint",
     "serve": "firebase serve --only functions",
