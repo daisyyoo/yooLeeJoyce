@@ -144,8 +144,8 @@ export default function Korean() {
         <div style={styles.marginSpacing}>
           <div style={styles.textContainer} className="d-flex flex-column justify-content-center align-items-center text-background">
             <h4 style={styles.koreanText} className="text-center korean my-3 dark-text">
-                    하나님의 은혜로 만나
-              <br />새로운 가정을 이루려는 저희들의
+                    하나님의 은혜로 만나서
+              <br />새로운 가정을 이루는 저희들의
               <br />작은 시작의 자리에 소중한
               <br />여러분을 초대합니다.
               <br />
