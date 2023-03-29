@@ -5,13 +5,17 @@
   "description": "A full stack JavaScript solo project.",
   "main": "server/index.js",
   "scripts": {
-    "start": "NODE_ENV=production node .",
-    "dev": "NODE_ENV=development nodemon .",
     "build": "NODE_ENV=production webpack",
-    "db:import": "sh database/import.sh",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "eslint",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase experimental:functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
   },
   "dependencies": {
+    "@react-spring/web": "^9.7.1",
     "argon2": "^0.29.1",
     "dotenv": "^16.0.3",
     "email-validator": "^2.0.4",
@@ -36,12 +40,18 @@
     "connect-livereload": "^0.6.1",
     "css-loader": "^6.7.1",
     "error-overlay-webpack-plugin": "^1.1.0",
-    "eslint": "^8.26.0",
+    "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-html": "^7.1.0",
-    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
     "livereload": "^0.9.3",
     "markuplint": "^2.11.0",
     "nodemon": "^2.0.20",
@@ -54,6 +64,12 @@
     "webpack-cli": "^4.10.0",
     "webpack-dev-middleware": "^5.3.3",
     "webpack-hot-middleware": "^2.25.2"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx}": [
+      "npx prettier --write",
+      "npx eslint --fix"
+    ]
   },
   "repository": {
     "type": "git",

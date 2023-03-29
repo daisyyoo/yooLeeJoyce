@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
+import { useSpring, animated } from '@react-spring/web'
 
 const styles = {
   backgroundImage1: {
@@ -108,16 +109,24 @@ export default function English() {
     }
   }, [formState, submittedData, reset]);
 
+  const props = useSpring({
+    delay: 200,
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+  });
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div style={styles.pageContainer}>
-        <div style={styles.backgroundImage1} className="d-flex flex-column justify-content-center align-items-center text-center py-5">
-          <h1 style={styles.title}>
-            Joyce</h1>
-          <h1 style={styles.titleSymbol}>&amp;</h1>
-          <h1 style={styles.title}>Kevin</h1>
+      <animated.div style={props}>
+        <div style={styles.pageContainer}>
+          <div style={styles.backgroundImage1} className="d-flex flex-column justify-content-center align-items-center text-center py-5">
+            <h1 style={styles.title}>
+              Joyce</h1>
+            <h1 style={styles.titleSymbol}>&amp;</h1>
+            <h1 style={styles.title}>Kevin</h1>
+          </div>
         </div>
-      </div>
+      </animated.div>
       <div className="d-flex flex-column justify-content-center align-items-center">
         <h3 style={styles.header} className="text-center py-4 my-4">We&apos;re getting married!</h3>
         <img style={styles.image} src="/images/image2.webp" alt="joyceAndKevinPic1" />

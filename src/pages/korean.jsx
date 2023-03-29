@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
+import { useSpring, animated } from '@react-spring/web'
 
 const styles = {
   backgroundImage1: {
@@ -42,8 +43,7 @@ const styles = {
   title: {
     fontFamily: 'DearlyScript',
     fontSize: '7rem',
-    lineHeight: '13rem',
-    color: '#222b13'
+    lineHeight: '13rem'
   },
   titleSymbol: {
     fontSize: '6rem',
@@ -122,28 +122,45 @@ export default function Korean() {
     }
   }, [formState, submittedData, reset]);
 
+  const props = useSpring({
+    delay: 200,
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+  });
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div style={styles.pageContainer}>
-        <div style={styles.backgroundImage1} className="d-flex flex-column justify-content-center align-items-center text-center py-5">
-          <h1 style={styles.title}>
-            Joyce</h1>
-          <h1 style={styles.titleSymbol}>&amp;</h1>
-          <h1 style={styles.title}>Kevin</h1>
+      <animated.div style={props}>
+        <div style={styles.pageContainer}>
+          <div style={styles.backgroundImage1} className="d-flex flex-column justify-content-center align-items-center text-center py-5">
+            <h1 style={styles.title}>
+              Joyce</h1>
+            <h1 style={styles.titleSymbol}>&amp;</h1>
+            <h1 style={styles.title}>Kevin</h1>
+          </div>
         </div>
-      </div>
+      </animated.div>
       <div style={styles.backgroundImage3}>
         <div style={styles.marginSpacing}>
           <div style={styles.textContainer} className="d-flex flex-column justify-content-center align-items-center text-background">
-            <h4 style={styles.koreanText} className="text-center korean mx-2 my-3 dark-text">우리라는 이름으로 시작하는 삶.<br/>그 설렘의 순간에 소중한 분을 초대합니다.</h4>
-            <div className="mx-3">
-              <h4 style={styles.koreanText} className="text-center py-3 korean dark-text">
-              하나님 안에서 서로 사랑을 시작한 저희가 이제 부부의 연으로
-              <br/>예수님 안에서 한 길을 바라보려 합니다.
-              <br/>평생을 성령님 안에서 서로 사랑하는 남편, 아내로 살겠습니다.
-              <br/>한 곳을 바라보며 첫발을 떼는 자리입니다.
-              <br/>그 시작의 자리에 함께해 주시어 축복해 주시기 바랍니다.</h4>
-            </div>
+            <h4 style={styles.koreanText} className="text-center korean my-3 dark-text">
+                    하나님의 은혜로 만나서
+              <br />새로운 가정을 이루는 저희들의
+              <br />작은 시작의 자리에 소중한
+              <br />여러분을 초대합니다.
+              <br />
+              <br />하나님 안에서 서로 사랑하며
+              <br />결혼을 준비한 저희들이
+              <br />혼인을 통하여 예수님 안에서
+              <br />하나되며, 평생을 성령님
+              <br />안에서 서로 돕고
+              <br />사랑하는 남편, 아내로
+              <br />살아가기 원합니다.
+              <br />
+              <br />그 귀한 첫발을 떼는 시작의
+              <br />자리에 함께 해 주시어
+              <br />축복해 주시기 바랍니다.
+            </h4>
             <div className="d-flex text-center align-items-center py-4">
               <h3 className="korean fw-bold dark-text">유병학  김효숙</h3>
               <h4 className="px-2 korean dark-text">의 아들</h4>
