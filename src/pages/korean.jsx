@@ -144,7 +144,7 @@ export default function Korean() {
           </div>
         </div>
       </animated.div>
-      <div style={styles.backgroundImage3}>
+      <div className="h-100" style={styles.backgroundImage3}>
         <div style={styles.marginSpacing}>
           <div
             style={styles.textContainer}
@@ -199,6 +199,7 @@ export default function Korean() {
           style={styles.image}
           src="/images/image2.webp"
           alt="joyceAndKevinPic1"
+          className="mt-3"
         />
         <img
           style={styles.image}
@@ -210,6 +211,7 @@ export default function Korean() {
           style={styles.image}
           src="/images/image1.webp"
           alt="joyceAndKevinPic3"
+          className="mb-3"
         />
       </div>
       <div>
@@ -249,63 +251,33 @@ export default function Korean() {
           </div>
           <div className="container mt-5">
             <div className="row d-flex flex-column flex-md-row justify-content-between">
-              <Form.Group className="mb-2 col-md-5">
+              <Form.Group className="mb-2">
                 <Form.Label
-                  htmlFor="lastName"
+                  htmlFor="fullName"
                   style={styles.formLabel}
                   className="text-color">
-                  성:
+                  성함:
                 </Form.Label>
                 <Form.Control
                   type="text"
-                  name="lastName"
-                  {...register('lastName', {
+                  name="fullName"
+                  {...register('fullName', {
                     required: true,
                     minLength: {
                       value: 1,
-                      message: 'Last name should be at least 1 characters.'
+                      message: 'Name should be at least 2 characters.'
                     }
                   })}
-                  placeholder="성"
+                  placeholder="성함"
                 />
-                {errors.lastName?.type === 'required' && (
+                {errors.fullName?.type === 'required' && (
                   <p className="errorMsg px-3" style={styles.errorMsg}>
-                    Last name is required.
+                    성함 입력해주세요.
                   </p>
                 )}
-                {errors.lastName?.type === 'minLength' && (
+                {errors.fullName?.type === 'minLength' && (
                   <p className="errorMsg px-3" style={styles.errorMsg}>
-                    {errors.lastName.message}
-                  </p>
-                )}
-              </Form.Group>
-              <Form.Group className="mb-2 col-md-5">
-                <Form.Label
-                  htmlFor="firstName"
-                  style={styles.formLabel}
-                  className="text-color">
-                  이름:
-                </Form.Label>
-                <Form.Control
-                  type="text"
-                  name="firstName"
-                  {...register('firstName', {
-                    required: true,
-                    minLength: {
-                      value: 1,
-                      message: 'First name should be at least 1 characters.'
-                    }
-                  })}
-                  placeholder="이름"
-                />
-                {errors.firstName?.type === 'required' && (
-                  <p className="errorMsg px-3" style={styles.errorMsg}>
-                    First name is required.
-                  </p>
-                )}
-                {errors.firstName?.type === 'minLength' && (
-                  <p className="errorMsg px-3" style={styles.errorMsg}>
-                    {errors.firstName.message}
+                    {errors.fullName.message}
                   </p>
                 )}
               </Form.Group>
@@ -343,8 +315,8 @@ export default function Korean() {
               </Form.Group>
             </div>
             <div className="row d-flex justify-content-center">
-              <Button type="submit" className="all-button my-5 px-5 w-25">
-                <b>SUBMIT</b>
+              <Button type="submit" className="all-button my-5 px-5 w-50">
+                <b>입력하기</b>
               </Button>
             </div>
             <div className="row flex-column">
